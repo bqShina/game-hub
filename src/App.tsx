@@ -1,8 +1,16 @@
 import { Grid, GridItem, Show, useBreakpointValue } from "@chakra-ui/react";
 import { NavBar } from "./components/NavBar";
+import { useColorMode } from "./components/ui/color-mode";
+import { useEffect } from "react";
 
 function App() {
   const isLg = useBreakpointValue({ base: false, lg: true });
+
+  const { setColorMode } = useColorMode();
+  useEffect(() => {
+    setColorMode("dark");
+  }, []);
+
   return (
     <Grid
       templateAreas={{
